@@ -1,0 +1,31 @@
+{
+    "name": "martianatwork/roowallet",
+    "description": "Digital Wallet for Laravel",
+    "keywords": ["wallet", "currency", "money","bitcoin","cryptocurrency","multi","multi-currency"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martianatwork",
+            "email": "nick@dustybone.com"
+        }
+    ],
+    "require": {
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "martianatwork\\RooWallet\\" : "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "martianatwork\\RooWallet\\Providers\\RooWalletServiceProvider"
+            ],
+            "aliases": {
+                "RooWallet": "martianatwork\\RooWallet\\Facades\\RooWallet"
+            }
+        }
+    }
+
+}
