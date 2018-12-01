@@ -1,4 +1,10 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * Martianatwork
+ *
+ */
+
 namespace martianatwork\RooWallet;
 
 use martianatwork\RooWallet\Repository\RooWalletCurrency;
@@ -62,12 +68,12 @@ class RooWallet
      *  Wallet
      */
 
-    public function getWallet($user_id, $currency_iso)
+    public function getWallet($user_id, $currency_iso = 'default')
     {
         return $this->walletRepo->getWallet($user_id, $currency_iso);
     }
 
-    public function createWallet($user_id, $currency_iso)
+    public function createWallet($user_id, $currency_iso = 'default')
     {
         return $this->walletRepo->createWallet($user_id, $currency_iso);
     }
@@ -76,7 +82,7 @@ class RooWallet
      *  Transaction
      */
 
-    public function getTransactions($user_id, $currency_iso)
+    public function getTransactions($user_id, $currency_iso = 'default')
     {
         return $this->transactionRepo->getTransactions($user_id, $currency_iso);
     }
@@ -85,32 +91,32 @@ class RooWallet
         return $this->transactionRepo->getAllTransactions($user_id);
     }
 
-    public function funds($user_id, $currency_iso)
+    public function funds($user_id, $currency_iso = 'default')
     {
         return $this->transactionRepo->calculateFunds($user_id, $currency_iso);
     }
 
-    public function deposit($user_id, $currency_iso, $amount, $refence_id = null, $reference_description = null, $token = '')
+    public function deposit($user_id, $currency_iso = 'default', $amount, $refence_id = null, $reference_description = null, $token = '')
     {
         return $this->transactionRepo->deposit($user_id, $currency_iso, $amount, $refence_id, $reference_description, $token);
     }
 
-    public function canWithdraw($user_id, $currency_iso, $amount)
+    public function canWithdraw($user_id, $currency_iso = 'default', $amount)
     {
         return $this->transactionRepo->canWithdraw($user_id, $currency_iso, $amount);
     }
 
-    public function withdraw($user_id, $currency_iso, $amount, $refence_id = null, $reference_description = null, $token = '')
+    public function withdraw($user_id, $currency_iso = 'default', $amount, $refence_id = null, $reference_description = null, $token = '')
     {
         return $this->transactionRepo->withdraw($user_id, $currency_iso, $amount, $refence_id, $reference_description, $token);
     }
 
-    public function getCredits($user_id, $currency_iso)
+    public function getCredits($user_id, $currency_iso = 'default')
     {
         return $this->transactionRepo->getCredits($user_id, $currency_iso);
     }
 
-    public function getDebits($user_id, $currency_iso)
+    public function getDebits($user_id, $currency_iso = 'default')
     {
         return $this->transactionRepo->getDebits($user_id, $currency_iso);
     }

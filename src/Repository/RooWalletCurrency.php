@@ -72,6 +72,9 @@ class RooWalletCurrency
 
     public function getCurrency($iso, $status = 1)
     {
+        if ($iso == 'default'){
+            $iso = \Config('patosmack.roowallet.base_currency');
+        }
         return WalletCurrency::whereIso(self::validateIso($iso))->where('enabled', $status)->first();
     }
     public function getCurrencyByID($id, $status = 1)
@@ -123,3 +126,10 @@ class RooWalletCurrency
     }
 
 }
+/**
+ * Copyright (c) 2018.
+ * Martianatwork
+ *
+ */
+
+

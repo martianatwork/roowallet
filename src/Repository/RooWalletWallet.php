@@ -24,8 +24,7 @@ class RooWalletWallet
     {
         $currency = $this->currencyRepo->getCurrency($currency_iso);
         if (!$currency) {
-            $currency = $this->currencyRepo->getCurrency(\Config('patosmack.roowallet.base_currency'));
-//            return false;
+            return false;
         }
         return Wallet::where('user_id', intval($user_id))->where('wallet_currency_id', $currency->id)->first();
     }
@@ -38,8 +37,7 @@ class RooWalletWallet
     {
         $currency = $this->currencyRepo->getCurrency($currency_iso);
         if (!$currency) {
-            $currency = $this->currencyRepo->getCurrency(\Config('patosmack.roowallet.base_currency'));
-//            return false;
+            return false;
         }
 
         $wallet = self::getWallet($user_id, $currency_iso);
