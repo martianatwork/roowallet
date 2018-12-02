@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * Martianatwork
+ *
+ */
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -20,6 +25,7 @@ class CreateWalletTransactionsTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('wallet_id');
+            $table->unsignedInteger('user_id');
 
             $table->decimal('amount', 13, 4);
 
@@ -36,6 +42,7 @@ class CreateWalletTransactionsTable extends Migration
 
 
             $table->foreign('wallet_id')->references('id')->on('wallets')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

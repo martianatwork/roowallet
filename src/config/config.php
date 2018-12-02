@@ -1,4 +1,10 @@
 <?php
+/**
+ * Copyright (c) 2018.
+ * Martianatwork
+ *
+ */
+
 return [
 
     /*
@@ -22,6 +28,10 @@ return [
      */
 
     'user_model' => 'App\User',
+    'user_model_selector'=>'user_id',
+    'wallet_model' => 'martianatwork\RooWallet\Models\Wallet',
+    'currency_model' => 'martianatwork\RooWallet\Models\WalletCurrency',
+    'transaction_model' => 'martianatwork\RooWallet\Models\WalletTransaction',
 
     /*
     |--------------------------------------------------------------------------
