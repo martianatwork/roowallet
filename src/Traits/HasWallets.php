@@ -198,7 +198,7 @@ trait HasWallets
         return self::roundNumber(WalletTransaction::where('wallet_id', $this->id)->where('direction', WalletTransaction::DIRECTION_DEBIT)->where('deleted', 0)->sum('amount'));
     }
 
-    public function deposit($amount, $iso = 'default', $refence_id = null, $reference_description = null, $token = '')
+    public function deposit($amount, $refence_id = null, $reference_description = null, $token = '',$iso = 'default')
     {
         return $this->wallet($iso)->deposit($amount, $refence_id = null, $reference_description = null, $token = '');
     }
@@ -212,7 +212,7 @@ trait HasWallets
         return $this->wallet($iso)->canWithdraw($amount);
     }
 
-    public function withdraw($amount, $iso = 'default', $refence_id = null, $reference_description = null, $token = '')
+    public function withdraw($amount, $refence_id = null, $reference_description = null, $token = '', $iso = 'default')
     {
         return $this->wallet($iso)->withdraw($amount, $refence_id = null, $reference_description = null, $token = '');
     }
