@@ -200,7 +200,7 @@ trait HasWallets
 
     public function deposit($amount, $refence_id = null, $reference_description = null, $token = '',$iso = 'default')
     {
-        return $this->wallet($iso)->deposit($amount, $refence_id = null, $reference_description = null, $token = '');
+        return $this->wallet($iso)->deposit($amount, $refence_id, $reference_description, $token);
     }
 
     public function testWithdraw($amount, $iso = 'default')
@@ -214,7 +214,7 @@ trait HasWallets
 
     public function withdraw($amount, $refence_id = null, $reference_description = null, $token = '', $iso = 'default')
     {
-        return $this->wallet($iso)->withdraw($amount, $refence_id = null, $reference_description = null, $token = '');
+        return $this->wallet($iso)->deposit($amount, $refence_id, $reference_description, $token);
     }
     public function convertamount($amount, $baseCurrency, $currency)
     {
