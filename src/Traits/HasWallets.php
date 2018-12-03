@@ -202,7 +202,7 @@ trait HasWallets
     }
     public function balance($iso = 'default')
     {
-        return $this->wallet($iso)->funds;
+        return $this->calculateFunds($iso);
     }
     private function roundNumber($number)
     {
