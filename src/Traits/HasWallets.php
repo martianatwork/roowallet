@@ -198,7 +198,7 @@ trait HasWallets
 
     public function calculateFunds($iso = 'default')
     {
-        return $this->wallet($iso)->funds;
+        return $this->wallet($iso)->calculateFunds();
     }
     public function balance($iso = 'default')
     {
