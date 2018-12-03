@@ -174,6 +174,27 @@ trait HasWallets
         $currency = $this->currency($iso)->id;
         return $this->wallets->where('wallet_currency_id',$currency)->first();
     }
+    public function createWallet($currency_iso = 'default')
+    {
+        $currency = $this->currency($currency_iso);
+        if (!$currency) {
+            return false;
+        }
+
+        $wallet = $this->wallet($currency_iso);
+        if (!$wallet) {
+            $wallet = new Wallet();
+            if (config('patosmack.roowallet.user_model_selector')){
+                $user = config('patosmack.roowallet.user_model_selector');
+                $wallet->{$user} = $this->id;
+            }
+            $wallet->wallet_currency_id = $currency->id;
+            $wallet->funds = 0;
+            $wallet->funds_update = Carbon::now();
+            return $wallet->save();
+        }
+        return false;
+    }
 
     public function calculateFunds($iso = 'default')
     {
