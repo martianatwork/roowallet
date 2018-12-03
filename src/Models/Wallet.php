@@ -36,7 +36,11 @@ class Wallet extends Model
 
     public function calculateFunds()
     {
-        return $this->funds;
+        $balance = self::calculateFundsbyWallet();
+        if ($balance != $this->funds) {
+            self::saveFundsByWallet();
+        }
+        return $balance;
     }
     private function roundNumber($number)
     {
